@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="/html5client/03b79512d84eeea825f777630c231fdbd10feb6c.css?meteor_css_resource=true">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      position: fixed;
+      height: 100%;
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+      font-size: 1rem; /* 16px */
+      background-color: #06172A;
+    }
+
+    /* language-specific font */
+    body.lang-fa {
+      font-family: Tahoma, 'Source Sans Pro', Arial, sans-serif;
+    }
+
+    :-webkit-full-screen {
+      background-color: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    #app {
+      height: 100%;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
+    .set-z-index {
+      z-index: 15;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .remove-z-index {
+      z-index: 0;
+    }
+    /* .full-screen {
+      height: 100% !important;
+      width: 100% !important;
+      transform: translateX(0) translateY(0) translateZ(0) !important;
+    } */
+
+    [hidden]:not([hidden="false"]) {
+      display: none !important;
+    }
+
+    ::-webkit-input-placeholder {
+      color: var(--palette-placeholder-text);
+      opacity: 1;
+    }
+
+    :-moz-placeholder, /* Firefox 4 to 18 */
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: var(--palette-placeholder-text);
+      opacity: 1;
+    }
+
+    main {
+      display: initial;
+    }
+
+    .overrideSelect {
+      background-color: #FFF !important;
+      color: #000 !important;
+    }
+
+    .select {
+      background-color: rgba(66, 133, 244, 1) !important;
+      color: #FFF !important;
+    }
+
+    .fade-in {
+      opacity: 1 !important;
+    }
+
+    .fade-out {
+      opacity: 0 !important;
+    }
+  </style>
+  <script>
+    document.addEventListener('gesturestart', function (e) {
+      e.preventDefault();
+    });
+  </script>
+  <script src="compatibility/sip.js?v=318" language="javascript"></script>
+  <script src="compatibility/tflite-simd.js?v=318" language="javascript"></script>
+  <script src="compatibility/tflite.js?v=318" language="javascript"></script>
+  <!-- fonts -->
+  <link rel="preload" href="fonts/BbbIcons/bbb-icons.woff2?v=318" as="font" type="font/woff2" crossorigin="anonymous"/>
+  <link rel="preload" href="fonts/SourceSansPro/SourceSansPro-Light.woff?v=318" as="font" crossorigin="anonymous"/>
+  <link rel="preload" href="fonts/SourceSansPro/SourceSansPro-Regular.woff?v=318" as="font" crossorigin="anonymous"/>
+  <link rel="preload" href="fonts/SourceSansPro/SourceSansPro-Semibold.woff?v=318" as="font" crossorigin="anonymous"/>
+  <link rel="preload" href="fonts/SourceSansPro/SourceSansPro-Bold.woff?v=318" as="font" crossorigin="anonymous"/>
+  <link rel="preload" href="fonts/SourceSansPro/SourceSansPro-LightItalic.woff?v=318" as="font" crossorigin="anonymous"/>
+  <link rel="preload" href="fonts/SourceSansPro/SourceSansPro-Italic.woff?v=318" as="font" crossorigin="anonymous"/>
+  <link rel="preload" href="fonts/SourceSansPro/SourceSansPro-SemiboldItalic.woff?v=318" as="font" crossorigin="anonymous"/>
+  <link rel="preload" href="fonts/SourceSansPro/SourceSansPro-BoldItalic.woff?v=318" as="font" crossorigin="anonymous"/>
+  <link rel="preload" href="files/source-code-pro-latin-400-normal.woff2" as="font" crossorigin="anonymous"/>
+
+  <style>
+    @font-face {
+      font-family: 'bbb-icons';
+      src: url('fonts/BbbIcons/bbb-icons.woff2?v=318') format('woff2'),
+        url('fonts/BbbIcons/bbb-icons.woff?v=318') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <!-- fonts -->
+
+</head>
+<body><div id="aria-polite-alert" aria-live="polite" aria-atomic="false" class="sr-only"></div>
+  <main>
+    <div id="app" role="document">
+  </main>
+  </div>
+  <span id="destination"></span>
+  <audio id="remote-media" autoplay>
+  </audio>
+  <div id="modals-container"></div>
+  <script type="text/javascript">__meteor_runtime_config__ = JSON.parse(decodeURIComponent("%7B%22meteorRelease%22%3A%22METEOR%402.13%22%2C%22meteorEnv%22%3A%7B%22NODE_ENV%22%3A%22production%22%2C%22TEST_METADATA%22%3A%22%7B%7D%22%7D%2C%22PUBLIC_SETTINGS%22%3A%7B%22app%22%3A%7B%22mobileFontSize%22%3A%2216px%22%2C%22desktopFontSize%22%3A%2214px%22%2C%22audioChatNotification%22%3Afalse%2C%22autoJoin%22%3Atrue%2C%22listenOnlyMode%22%3Atrue%2C%22forceListenOnly%22%3Afalse%2C%22skipCheck%22%3Afalse%2C%22skipCheckOnJoin%22%3Afalse%2C%22clientTitle%22%3A%22Vznaniya%22%2C%22appName%22%3Anull%2C%22bbbServerVersion%22%3A%222.7.10%22%2C%22displayBbbServerVersion%22%3Afalse%2C%22copyright%22%3A%22%22%2C%22html5ClientBuild%22%3A318%2C%22helpLink%22%3A%22https%3A%2F%2Fbigbluebutton.org%2Fhtml5%2F%22%2C%22delayForUnmountOfSharedNote%22%3A120000%2C%22bbbTabletApp%22%3A%7B%22enabled%22%3Atrue%2C%22iosAppStoreUrl%22%3A%22https%3A%2F%2Fapps.apple.com%2Fus%2Fapp%2Fbigbluebutton-tablet%2Fid1641156756%22%2C%22iosAppUrlScheme%22%3A%22bigbluebutton-tablet%22%7D%2C%22lockOnJoin%22%3Atrue%2C%22cdn%22%3A%22%22%2C%22basename%22%3A%22%2Fhtml5client%22%2C%22bbbWebBase%22%3A%22%2Fbigbluebutton%22%2C%22learningDashboardBase%22%3A%22%2Flearning-analytics-dashboard%22%2C%22customStyleUrl%22%3Anull%2C%22darkTheme%22%3A%7B%22enabled%22%3Atrue%7D%2C%22askForFeedbackOnLogout%22%3Afalse%2C%22askForConfirmationOnLeave%22%3Atrue%2C%22wakeLock%22%3A%7B%22enabled%22%3Atrue%7D%2C%22allowDefaultLogoutUrl%22%3Atrue%2C%22allowUserLookup%22%3Afalse%2C%22dynamicGuestPolicy%22%3Atrue%2C%22enableGuestLobbyMessage%22%3Atrue%2C%22guestPolicyExtraAllowOptions%22%3Afalse%2C%22alwaysShowWaitingRoomUI%22%3Atrue%2C%22enableLimitOfViewersInWebcam%22%3Afalse%2C%22enableMultipleCameras%22%3Atrue%2C%22enableCameraAsContent%22%3Atrue%2C%22enableWebcamSelectorButton%22%3Atrue%2C%22enableTalkingIndicator%22%3Atrue%2C%22enableCameraBrightness%22%3Atrue%2C%22mirrorOwnWebcam%22%3Afalse%2C%22viewersInWebcam%22%3A8%2C%22ipv4FallbackDomain%22%3A%22%22%2C%22allowLogout%22%3Atrue%2C%22allowFullscreen%22%3Atrue%2C%22preloadNextSlides%22%3A2%2C%22warnAboutUnsavedContentOnMeetingEnd%22%3Afalse%2C%22audioCaptions%22%3A%7B%22enabled%22%3Afalse%2C%22alwaysVisible%22%3Afalse%2C%22mobile%22%3Afalse%2C%22provider%22%3A%22webspeech%22%2C%22language%22%3A%7B%22available%22%3A%5B%22en-US%22%2C%22ru-RU%22%5D%2C%22forceLocale%22%3Afalse%2C%22defaultSelectLocale%22%3Atrue%2C%22locale%22%3A%22disabled%22%7D%7D%2C%22mutedAlert%22%3A%7B%22enabled%22%3Atrue%2C%22interval%22%3A200%2C%22threshold%22%3A-50%2C%22duration%22%3A4000%7D%2C%22remainingTimeThreshold%22%3A30%2C%22remainingTimeAlertThresholdArray%22%3A%5B1%2C5%5D%2C%22enableDebugWindow%22%3Atrue%2C%22breakouts%22%3A%7B%22allowUserChooseRoomByDefault%22%3Afalse%2C%22captureWhiteboardByDefault%22%3Afalse%2C%22captureSharedNotesByDefault%22%3Afalse%2C%22sendInvitationToAssignedModeratorsByDefault%22%3Afalse%2C%22breakoutRoomLimit%22%3A16%2C%22allowPresentationManagementInBreakouts%22%3Atrue%7D%2C%22customHeartbeat%22%3Afalse%2C%22customHeartbeatUseDataFrames%22%3Atrue%2C%22showAllAvailableLocales%22%3Atrue%2C%22showAudioFilters%22%3Atrue%2C%22raiseHandActionButton%22%3A%7B%22enabled%22%3Afalse%2C%22centered%22%3Atrue%7D%2C%22reactionsButton%22%3A%7B%22enabled%22%3Atrue%7D%2C%22emojiRain%22%3A%7B%22enabled%22%3Afalse%2C%22intervalEmojis%22%3A2000%2C%22numberOfEmojis%22%3A5%2C%22emojiSize%22%3A2%7D%2C%22enableNetworkStats%22%3Atrue%2C%22enableCopyNetworkStatsButton%22%3Atrue%2C%22userSettingsStorage%22%3A%22session%22%2C%22defaultSettings%22%3A%7B%22application%22%3A%7B%22selectedLayout%22%3A%22custom%22%2C%22animations%22%3Atrue%2C%22chatAudioAlerts%22%3Afalse%2C%22chatPushAlerts%22%3Afalse%2C%22userJoinAudioAlerts%22%3Afalse%2C%22userJoinPushAlerts%22%3Afalse%2C%22userLeaveAudioAlerts%22%3Afalse%2C%22userLeavePushAlerts%22%3Afalse%2C%22raiseHandAudioAlerts%22%3Atrue%2C%22raiseHandPushAlerts%22%3Atrue%2C%22guestWaitingAudioAlerts%22%3Atrue%2C%22guestWaitingPushAlerts%22%3Atrue%2C%22wakeLock%22%3Atrue%2C%22paginationEnabled%22%3Atrue%2C%22whiteboardToolbarAutoHide%22%3Afalse%2C%22autoCloseReactionsBar%22%3Atrue%2C%22directLeaveButton%22%3Afalse%2C%22darkTheme%22%3Afalse%2C%22fallbackLocale%22%3A%22en%22%2C%22overrideLocale%22%3Anull%7D%2C%22audio%22%3A%7B%22inputDeviceId%22%3A%22undefined%22%2C%22outputDeviceId%22%3A%22undefined%22%7D%2C%22dataSaving%22%3A%7B%22viewParticipantsWebcams%22%3Atrue%2C%22viewScreenshare%22%3Atrue%7D%2C%22transcription%22%3A%7B%22partialUtterances%22%3Atrue%2C%22minUtteranceLength%22%3A1%7D%7D%2C%22shortcuts%22%3A%7B%22openOptions%22%3A%7B%22accesskey%22%3A%22O%22%2C%22descId%22%3A%22openOptions%22%7D%2C%22toggleUserList%22%3A%7B%22accesskey%22%3A%22U%22%2C%22descId%22%3A%22toggleUserList%22%7D%2C%22toggleMute%22%3A%7B%22accesskey%22%3A%22M%22%2C%22descId%22%3A%22toggleMute%22%7D%2C%22joinAudio%22%3A%7B%22accesskey%22%3A%22J%22%2C%22descId%22%3A%22joinAudio%22%7D%2C%22leaveAudio%22%3A%7B%22accesskey%22%3A%22L%22%2C%22descId%22%3A%22leaveAudio%22%7D%2C%22togglePublicChat%22%3A%7B%22accesskey%22%3A%22P%22%2C%22descId%22%3A%22togglePublicChat%22%7D%2C%22hidePrivateChat%22%3A%7B%22accesskey%22%3A%22H%22%2C%22descId%22%3A%22hidePrivateChat%22%7D%2C%22closePrivateChat%22%3A%7B%22accesskey%22%3A%22G%22%2C%22descId%22%3A%22closePrivateChat%22%7D%2C%22raiseHand%22%3A%7B%22accesskey%22%3A%22R%22%2C%22descId%22%3A%22raiseHand%22%7D%2C%22openActions%22%3A%7B%22accesskey%22%3A%22A%22%2C%22descId%22%3A%22openActions%22%7D%2C%22openDebugWindow%22%3A%7B%22accesskey%22%3A%22K%22%2C%22descId%22%3A%22openDebugWindow%22%7D%7D%2C%22branding%22%3A%7B%22displayBrandingArea%22%3Atrue%7D%2C%22connectionTimeout%22%3A60000%2C%22showHelpButton%22%3Afalse%2C%22effectiveConnection%22%3A%5B%22critical%22%2C%22danger%22%2C%22warning%22%5D%2C%22fallbackOnEmptyLocaleString%22%3Atrue%2C%22disableWebsocketFallback%22%3Atrue%2C%22instanceId%22%3A%22%22%7D%2C%22externalVideoPlayer%22%3A%7B%22enabled%22%3Atrue%7D%2C%22kurento%22%3A%7B%22wsUrl%22%3A%22wss%3A%2F%2Fwebinar01.vznaniya.ru%2Fbbb-webrtc-sfu%22%2C%22cameraWsOptions%22%3A%7B%22wsConnectionTimeout%22%3A4000%2C%22maxRetries%22%3A7%2C%22debug%22%3Afalse%2C%22heartbeat%22%3A%7B%22interval%22%3A15000%2C%22delay%22%3A3000%2C%22reconnectOnFailure%22%3Atrue%7D%7D%2C%22gUMTimeout%22%3A20000%2C%22signalCandidates%22%3Afalse%2C%22traceLogs%22%3Afalse%2C%22cameraTimeouts%22%3A%7B%22baseTimeout%22%3A30000%2C%22maxTimeout%22%3A60000%7D%2C%22screenshare%22%3A%7B%22enableVolumeControl%22%3Atrue%2C%22subscriberOffering%22%3Afalse%2C%22bitrate%22%3A1500%2C%22mediaTimeouts%22%3A%7B%22maxConnectionAttempts%22%3A2%2C%22baseTimeout%22%3A20000%2C%22baseReconnectionTimeout%22%3A8000%2C%22maxTimeout%22%3A25000%2C%22timeoutIncreaseFactor%22%3A1.5%7D%2C%22constraints%22%3A%7B%22video%22%3A%7B%22frameRate%22%3A%7B%22ideal%22%3A5%2C%22max%22%3A10%7D%2C%22width%22%3A%7B%22max%22%3A2560%7D%2C%22height%22%3A%7B%22max%22%3A1600%7D%7D%2C%22audio%22%3Atrue%7D%7D%2C%22cameraProfiles%22%3A%5B%7B%22id%22%3A%22low-u30%22%2C%22name%22%3A%22low-u30%22%2C%22bitrate%22%3A30%2C%22hidden%22%3Atrue%7D%2C%7B%22id%22%3A%22low-u25%22%2C%22name%22%3A%22low-u25%22%2C%22bitrate%22%3A40%2C%22hidden%22%3Atrue%7D%2C%7B%22id%22%3A%22low-u20%22%2C%22name%22%3A%22low-u20%22%2C%22bitrate%22%3A50%2C%22hidden%22%3Atrue%7D%2C%7B%22id%22%3A%22low-u15%22%2C%22name%22%3A%22low-u15%22%2C%22bitrate%22%3A70%2C%22hidden%22%3Atrue%7D%2C%7B%22id%22%3A%22low-u12%22%2C%22name%22%3A%22low-u12%22%2C%22bitrate%22%3A90%2C%22hidden%22%3Atrue%7D%2C%7B%22id%22%3A%22low-u8%22%2C%22name%22%3A%22low-u8%22%2C%22bitrate%22%3A100%2C%22hidden%22%3Atrue%7D%2C%7B%22id%22%3A%22low%22%2C%22name%22%3A%22Low%22%2C%22default%22%3Afalse%2C%22bitrate%22%3A100%7D%2C%7B%22id%22%3A%22medium%22%2C%22name%22%3A%22Medium%22%2C%22default%22%3Atrue%2C%22bitrate%22%3A200%7D%2C%7B%22id%22%3A%22high%22%2C%22name%22%3A%22High%22%2C%22default%22%3Afalse%2C%22bitrate%22%3A500%2C%22constraints%22%3A%7B%22width%22%3A1280%2C%22height%22%3A720%2C%22frameRate%22%3A15%7D%7D%2C%7B%22id%22%3A%22hd%22%2C%22name%22%3A%22High%20definition%22%2C%22default%22%3Afalse%2C%22bitrate%22%3A800%2C%22constraints%22%3A%7B%22width%22%3A1280%2C%22height%22%3A720%2C%22frameRate%22%3A30%7D%7D%2C%7B%22id%22%3A%22fhd%22%2C%22name%22%3A%22Camera%20as%20content%22%2C%22hidden%22%3Atrue%2C%22default%22%3Afalse%2C%22bitrate%22%3A1500%2C%22constraints%22%3A%7B%22width%22%3A1920%2C%22height%22%3A1080%7D%7D%5D%2C%22enableScreensharing%22%3Atrue%2C%22enableVideo%22%3Atrue%2C%22enableVideoMenu%22%3Atrue%2C%22enableVideoPin%22%3Atrue%2C%22autoShareWebcam%22%3Afalse%2C%22skipVideoPreview%22%3Afalse%2C%22skipVideoPreviewOnFirstJoin%22%3Afalse%2C%22cameraSortingModes%22%3A%7B%22defaultSorting%22%3A%22LOCAL_ALPHABETICAL%22%2C%22paginationSorting%22%3A%22VOICE_ACTIVITY_LOCAL%22%7D%2C%22cameraQualityThresholds%22%3A%7B%22enabled%22%3Atrue%2C%22applyConstraints%22%3Afalse%2C%22privilegedStreams%22%3Atrue%2C%22debounceTime%22%3A2500%2C%22thresholds%22%3A%5B%7B%22threshold%22%3A8%2C%22profile%22%3A%22low-u8%22%7D%2C%7B%22threshold%22%3A12%2C%22profile%22%3A%22low-u12%22%7D%2C%7B%22threshold%22%3A15%2C%22profile%22%3A%22low-u15%22%7D%2C%7B%22threshold%22%3A20%2C%22profile%22%3A%22low-u20%22%7D%2C%7B%22threshold%22%3A25%2C%22profile%22%3A%22low-u25%22%7D%2C%7B%22threshold%22%3A30%2C%22profile%22%3A%22low-u30%22%7D%5D%7D%2C%22pagination%22%3A%7B%22paginationToggleEnabled%22%3Atrue%2C%22pageChangeDebounceTime%22%3A2500%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A0%2C%22viewer%22%3A5%7D%2C%22mobilePageSizes%22%3A%7B%22moderator%22%3A2%2C%22viewer%22%3A2%7D%2C%22desktopGridSizes%22%3A%7B%22moderator%22%3A48%2C%22viewer%22%3A48%7D%2C%22mobileGridSizes%22%3A%7B%22moderator%22%3A14%2C%22viewer%22%3A14%7D%7D%2C%22paginationThresholds%22%3A%7B%22enabled%22%3Afalse%2C%22thresholds%22%3A%5B%7B%22users%22%3A30%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A25%2C%22viewer%22%3A25%7D%7D%2C%7B%22users%22%3A40%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A20%2C%22viewer%22%3A20%7D%7D%2C%7B%22users%22%3A50%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A16%2C%22viewer%22%3A16%7D%7D%2C%7B%22users%22%3A60%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A14%2C%22viewer%22%3A12%7D%7D%2C%7B%22users%22%3A70%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A12%2C%22viewer%22%3A10%7D%7D%2C%7B%22users%22%3A80%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A10%2C%22viewer%22%3A8%7D%7D%2C%7B%22users%22%3A90%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A8%2C%22viewer%22%3A6%7D%7D%2C%7B%22users%22%3A100%2C%22desktopPageSizes%22%3A%7B%22moderator%22%3A6%2C%22viewer%22%3A4%7D%7D%5D%7D%7D%2C%22syncUsersWithConnectionManager%22%3A%7B%22enabled%22%3Afalse%2C%22syncInterval%22%3A60000%7D%2C%22poll%22%3A%7B%22enabled%22%3Atrue%2C%22allowCustomResponseInput%22%3Atrue%2C%22maxCustom%22%3A5%2C%22maxTypedAnswerLength%22%3A45%2C%22chatMessage%22%3Atrue%7D%2C%22captions%22%3A%7B%22enabled%22%3Atrue%2C%22showButton%22%3Afalse%2C%22id%22%3A%22captions%22%2C%22dictation%22%3Afalse%2C%22defaultPad%22%3A%22en%22%2C%22background%22%3A%22%23000000%22%2C%22font%22%3A%7B%22color%22%3A%22%23ffffff%22%2C%22family%22%3A%22Calibri%22%2C%22size%22%3A%2224px%22%7D%2C%22captionLimit%22%3A3%2C%22lineLimit%22%3A60%2C%22lines%22%3A2%2C%22time%22%3A5000%7D%2C%22timer%22%3A%7B%22enabled%22%3Atrue%2C%22alarm%22%3Atrue%2C%22music%22%3A%7B%22enabled%22%3Afalse%2C%22volume%22%3A0.4%2C%22track1%22%3A%22RelaxingMusic%22%2C%22track2%22%3A%22CalmMusic%22%2C%22track3%22%3A%22aristocratDrums%22%7D%2C%22interval%22%3A%7B%22clock%22%3A100%2C%22offset%22%3A60000%7D%2C%22time%22%3A5%2C%22tabIndicator%22%3Afalse%7D%2C%22chat%22%3A%7B%22enabled%22%3Atrue%2C%22itemsPerPage%22%3A100%2C%22timeBetweenFetchs%22%3A1000%2C%22enableSaveAndCopyPublicChat%22%3Atrue%2C%22bufferChatInsertsMs%22%3A0%2C%22startClosed%22%3Afalse%2C%22min_message_length%22%3A1%2C%22max_message_length%22%3A5000%2C%22grouping_messages_window%22%3A10000%2C%22type_system%22%3A%22SYSTEM_MESSAGE%22%2C%22type_public%22%3A%22PUBLIC_ACCESS%22%2C%22type_private%22%3A%22PRIVATE_ACCESS%22%2C%22system_userid%22%3A%22SYSTEM_MESSAGE%22%2C%22system_username%22%3A%22SYSTEM_MESSAGE%22%2C%22public_id%22%3A%22public%22%2C%22public_group_id%22%3A%22MAIN-PUBLIC-GROUP-CHAT%22%2C%22public_userid%22%3A%22public_chat_userid%22%2C%22public_username%22%3A%22public_chat_username%22%2C%22storage_key%22%3A%22UNREAD_CHATS%22%2C%22system_messages_keys%22%3A%7B%22chat_clear%22%3A%22PUBLIC_CHAT_CLEAR%22%2C%22chat_poll_result%22%3A%22PUBLIC_CHAT_POLL_RESULT%22%2C%22chat_exported_presentation%22%3A%22PUBLIC_CHAT_EXPORTED_PRESENTATION%22%2C%22chat_status_message%22%3A%22PUBLIC_CHAT_STATUS%22%7D%2C%22typingIndicator%22%3A%7B%22enabled%22%3Atrue%2C%22showNames%22%3Atrue%7D%2C%22moderatorChatEmphasized%22%3Atrue%2C%22autoConvertEmoji%22%3Atrue%2C%22emojiPicker%22%3A%7B%22enable%22%3Afalse%7D%2C%22disableEmojis%22%3A%5B%5D%7D%2C%22userReaction%22%3A%7B%22enabled%22%3Atrue%2C%22expire%22%3A60%2C%22reactions%22%3A%5B%7B%22id%22%3A%22smiley%22%2C%22native%22%3A%22%F0%9F%98%83%22%7D%2C%7B%22id%22%3A%22neutral_face%22%2C%22native%22%3A%22%F0%9F%98%90%22%7D%2C%7B%22id%22%3A%22slightly_frowning_face%22%2C%22native%22%3A%22%F0%9F%99%81%22%7D%2C%7B%22id%22%3A%22%2B1%22%2C%22native%22%3A%22%F0%9F%91%8D%22%7D%2C%7B%22id%22%3A%22-1%22%2C%22native%22%3A%22%F0%9F%91%8E%22%7D%2C%7B%22id%22%3A%22clap%22%2C%22native%22%3A%22%F0%9F%91%8F%22%7D%5D%7D%2C%22userStatus%22%3A%7B%22enabled%22%3Afalse%7D%2C%22notes%22%3A%7B%22enabled%22%3Atrue%2C%22id%22%3A%22notes%22%2C%22pinnable%22%3Atrue%7D%2C%22layout%22%3A%7B%22hidePresentationOnJoin%22%3Afalse%2C%22showParticipantsOnLogin%22%3Atrue%2C%22showPushLayoutButton%22%3Atrue%2C%22showPushLayoutToggle%22%3Atrue%7D%2C%22pads%22%3A%7B%22url%22%3A%22https%3A%2F%2Fwebinar01.vznaniya.ru%2Fpad%22%2C%22cookie%22%3A%7B%22path%22%3A%22%2F%22%2C%22sameSite%22%3A%22None%22%2C%22secure%22%3Atrue%7D%7D%2C%22media%22%3A%7B%22audio%22%3A%7B%22defaultFullAudioBridge%22%3A%22fullaudio%22%2C%22defaultListenOnlyBridge%22%3A%22fullaudio%22%2C%22bridges%22%3A%5B%7B%22name%22%3A%22sipjs%22%2C%22path%22%3A%22bridge%2Fsip%22%7D%2C%7B%22name%22%3A%22fullaudio%22%2C%22path%22%3A%22bridge%2Fsfu-audio-bridge%22%7D%5D%2C%22retryThroughRelay%22%3Afalse%7D%2C%22stunTurnServersFetchAddress%22%3A%22%2Fbigbluebutton%2Fapi%2Fstuns%22%2C%22cacheStunTurnServers%22%3Atrue%2C%22fallbackStunServer%22%3A%22%22%2C%22forceRelay%22%3Afalse%2C%22forceRelayOnFirefox%22%3Atrue%2C%22mediaTag%22%3A%22%23remote-media%22%2C%22callTransferTimeout%22%3A5000%2C%22callHangupTimeout%22%3A2000%2C%22callHangupMaximumRetries%22%3A10%2C%22echoTestNumber%22%3A%22echo%22%2C%22listenOnlyCallTimeout%22%3A15000%2C%22transparentListenOnly%22%3Afalse%2C%22fullAudioOffering%22%3Atrue%2C%22listenOnlyOffering%22%3Afalse%2C%22iceGatheringTimeout%22%3A5000%2C%22audioConnectionTimeout%22%3A5000%2C%22audioReconnectionDelay%22%3A5000%2C%22audioReconnectionAttempts%22%3A3%2C%22sipjsHackViaWs%22%3Atrue%2C%22sipjsAllowMdns%22%3Afalse%2C%22sip_ws_host%22%3A%22%22%2C%22toggleMuteThrottleTime%22%3A300%2C%22websocketKeepAliveInterval%22%3A30%2C%22websocketKeepAliveDebounce%22%3A10%2C%22traceSip%22%3Afalse%2C%22sdpSemantics%22%3A%22unified-plan%22%2C%22localEchoTest%22%3A%7B%22enabled%22%3Atrue%2C%22initialHearingState%22%3Atrue%2C%22useRtcLoopbackInChromium%22%3Atrue%2C%22delay%22%3A%7B%22enabled%22%3Atrue%2C%22delayTime%22%3A0.5%2C%22maxDelayTime%22%3A2%7D%7D%2C%22showVolumeMeter%22%3Atrue%7D%2C%22stats%22%3A%7B%22enabled%22%3Atrue%2C%22interval%22%3A10000%2C%22timeout%22%3A30000%2C%22log%22%3Atrue%2C%22notification%22%3A%7B%22warning%22%3Afalse%2C%22error%22%3Atrue%7D%2C%22jitter%22%3A%5B10%2C20%2C30%5D%2C%22loss%22%3A%5B0.05%2C0.1%2C0.2%5D%2C%22rtt%22%3A%5B500%2C1000%2C2000%5D%2C%22level%22%3A%5B%22warning%22%2C%22danger%22%2C%22critical%22%5D%2C%22help%22%3A%22STATS_HELP_URL%22%7D%2C%22presentation%22%3A%7B%22allowDownloadOriginal%22%3Atrue%2C%22allowDownloadWithAnnotations%22%3Atrue%2C%22allowSnapshotOfCurrentSlide%22%3Atrue%2C%22panZoomThrottle%22%3A32%2C%22restoreOnUpdate%22%3Atrue%2C%22uploadEndpoint%22%3A%22%2Fbigbluebutton%2Fpresentation%2Fupload%22%2C%22fileUploadConstraintsHint%22%3Afalse%2C%22mirroredFromBBBCore%22%3A%7B%22uploadSizeMax%22%3A30000000%2C%22uploadPagesMax%22%3A200%7D%2C%22uploadValidMimeTypes%22%3A%5B%7B%22extension%22%3A%22.pdf%22%2C%22mime%22%3A%22application%2Fpdf%22%7D%2C%7B%22extension%22%3A%22.doc%22%2C%22mime%22%3A%22application%2Fmsword%22%7D%2C%7B%22extension%22%3A%22.docx%22%2C%22mime%22%3A%22application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document%22%7D%2C%7B%22extension%22%3A%22.xls%22%2C%22mime%22%3A%22application%2Fvnd.ms-excel%22%7D%2C%7B%22extension%22%3A%22.xlsx%22%2C%22mime%22%3A%22application%2Fvnd.openxmlformats-officedocument.spreadsheetml.sheet%22%7D%2C%7B%22extension%22%3A%22.ppt%22%2C%22mime%22%3A%22application%2Fvnd.ms-powerpoint%22%7D%2C%7B%22extension%22%3A%22.pptx%22%2C%22mime%22%3A%22application%2Fvnd.openxmlformats-officedocument.presentationml.presentation%22%7D%2C%7B%22extension%22%3A%22.txt%22%2C%22mime%22%3A%22text%2Fplain%22%7D%2C%7B%22extension%22%3A%22.rtf%22%2C%22mime%22%3A%22application%2Frtf%22%7D%2C%7B%22extension%22%3A%22.odt%22%2C%22mime%22%3A%22application%2Fvnd.oasis.opendocument.text%22%7D%2C%7B%22extension%22%3A%22.ods%22%2C%22mime%22%3A%22application%2Fvnd.oasis.opendocument.spreadsheet%22%7D%2C%7B%22extension%22%3A%22.odp%22%2C%22mime%22%3A%22application%2Fvnd.oasis.opendocument.presentation%22%7D%2C%7B%22extension%22%3A%22.odg%22%2C%22mime%22%3A%22application%2Fvnd.oasis.opendocument.graphics%22%7D%2C%7B%22extension%22%3A%22.jpg%22%2C%22mime%22%3A%22image%2Fjpeg%22%7D%2C%7B%22extension%22%3A%22.jpeg%22%2C%22mime%22%3A%22image%2Fjpeg%22%7D%2C%7B%22extension%22%3A%22.png%22%2C%22mime%22%3A%22image%2Fpng%22%7D%2C%7B%22extension%22%3A%22.webp%22%2C%22mime%22%3A%22image%2Fwebp%22%7D%2C%7B%22extension%22%3A%22.svg%22%2C%22mime%22%3A%22image%2Fsvg%2Bxm%22%7D%5D%7D%2C%22selectRandomUser%22%3A%7B%22enabled%22%3Atrue%2C%22countdown%22%3Afalse%7D%2C%22user%22%3A%7B%22role_moderator%22%3A%22MODERATOR%22%2C%22role_viewer%22%3A%22VIEWER%22%2C%22label%22%3A%7B%22moderator%22%3Afalse%2C%22mobile%22%3Atrue%2C%22guest%22%3Atrue%2C%22sharingWebcam%22%3Atrue%7D%7D%2C%22whiteboard%22%3A%7B%22annotationsQueueProcessInterval%22%3A60%2C%22cursorInterval%22%3A150%2C%22pointerDiameter%22%3A5%2C%22maxStickyNoteLength%22%3A1000%2C%22maxNumberOfAnnotations%22%3A300%2C%22annotations%22%3A%7B%22status%22%3A%7B%22start%22%3A%22DRAW_START%22%2C%22update%22%3A%22DRAW_UPDATE%22%2C%22end%22%3A%22DRAW_END%22%7D%7D%2C%22styles%22%3A%7B%22text%22%3A%7B%22family%22%3A%22script%22%7D%7D%2C%22toolbar%22%3A%7B%22multiUserPenOnly%22%3Afalse%2C%22colors%22%3A%5B%7B%22label%22%3A%22black%22%2C%22value%22%3A%22%23000000%22%7D%2C%7B%22label%22%3A%22white%22%2C%22value%22%3A%22%23ffffff%22%7D%2C%7B%22label%22%3A%22red%22%2C%22value%22%3A%22%23ff0000%22%7D%2C%7B%22label%22%3A%22orange%22%2C%22value%22%3A%22%23ff8800%22%7D%2C%7B%22label%22%3A%22eletricLime%22%2C%22value%22%3A%22%23ccff00%22%7D%2C%7B%22label%22%3A%22Lime%22%2C%22value%22%3A%22%2300ff00%22%7D%2C%7B%22label%22%3A%22Cyan%22%2C%22value%22%3A%22%2300ffff%22%7D%2C%7B%22label%22%3A%22dodgerBlue%22%2C%22value%22%3A%22%230088ff%22%7D%2C%7B%22label%22%3A%22blue%22%2C%22value%22%3A%22%230000ff%22%7D%2C%7B%22label%22%3A%22violet%22%2C%22value%22%3A%22%238800ff%22%7D%2C%7B%22label%22%3A%22magenta%22%2C%22value%22%3A%22%23ff00ff%22%7D%2C%7B%22label%22%3A%22silver%22%2C%22value%22%3A%22%23c0c0c0%22%7D%5D%2C%22thickness%22%3A%5B%7B%22value%22%3A14%7D%2C%7B%22value%22%3A12%7D%2C%7B%22value%22%3A10%7D%2C%7B%22value%22%3A8%7D%2C%7B%22value%22%3A6%7D%2C%7B%22value%22%3A4%7D%2C%7B%22value%22%3A2%7D%2C%7B%22value%22%3A1%7D%5D%2C%22font_sizes%22%3A%5B%7B%22value%22%3A36%7D%2C%7B%22value%22%3A32%7D%2C%7B%22value%22%3A28%7D%2C%7B%22value%22%3A24%7D%2C%7B%22value%22%3A20%7D%2C%7B%22value%22%3A16%7D%5D%2C%22tools%22%3A%5B%7B%22icon%22%3A%22text_tool%22%2C%22value%22%3A%22text%22%7D%2C%7B%22icon%22%3A%22line_tool%22%2C%22value%22%3A%22line%22%7D%2C%7B%22icon%22%3A%22circle_tool%22%2C%22value%22%3A%22ellipse%22%7D%2C%7B%22icon%22%3A%22triangle_tool%22%2C%22value%22%3A%22triangle%22%7D%2C%7B%22icon%22%3A%22rectangle_tool%22%2C%22value%22%3A%22rectangle%22%7D%2C%7B%22icon%22%3A%22pen_tool%22%2C%22value%22%3A%22pencil%22%7D%2C%7B%22icon%22%3A%22hand%22%2C%22value%22%3A%22hand%22%7D%5D%2C%22presenterTools%22%3A%5B%22text%22%2C%22line%22%2C%22ellipse%22%2C%22triangle%22%2C%22rectangle%22%2C%22pencil%22%2C%22hand%22%5D%2C%22multiUserTools%22%3A%5B%22text%22%2C%22line%22%2C%22ellipse%22%2C%22triangle%22%2C%22rectangle%22%2C%22pencil%22%5D%7D%7D%2C%22clientLog%22%3A%7B%22server%22%3A%7B%22enabled%22%3Afalse%2C%22level%22%3A%22info%22%7D%2C%22console%22%3A%7B%22enabled%22%3Atrue%2C%22level%22%3A%22debug%22%7D%2C%22external%22%3A%7B%22enabled%22%3Afalse%2C%22level%22%3A%22info%22%2C%22url%22%3A%22https%3A%2F%2FLOG_HOST%2Fhtml5Log%22%2C%22method%22%3A%22POST%22%2C%22throttleInterval%22%3A400%2C%22flushOnClose%22%3Atrue%2C%22logTag%22%3A%22%22%7D%7D%2C%22virtualBackgrounds%22%3A%7B%22enabled%22%3Atrue%2C%22enableVirtualBackgroundUpload%22%3Atrue%2C%22storedOnBBB%22%3Atrue%2C%22showThumbnails%22%3Atrue%2C%22imagesPath%22%3A%22%2Fresources%2Fimages%2Fvirtual-backgrounds%2F%22%2C%22thumbnailsPath%22%3A%22%2Fresources%2Fimages%2Fvirtual-backgrounds%2Fthumbnails%2F%22%2C%22fileNames%22%3A%5B%22home.jpg%22%2C%22coffeeshop.jpg%22%2C%22board.jpg%22%5D%7D%2C%22packages%22%3A%7B%22dynamic-import%22%3A%7B%22useLocationOrigin%22%3Atrue%7D%7D%7D%2C%22ROOT_URL%22%3A%22http%3A%2F%2F127.0.0.1%2Fhtml5client%22%2C%22ROOT_URL_PATH_PREFIX%22%3A%22%2Fhtml5client%22%2C%22reactFastRefreshEnabled%22%3Atrue%2C%22autoupdate%22%3A%7B%22versions%22%3A%7B%22web.browser%22%3A%7B%22version%22%3A%221524423bb1249c896ac9feb7642cdaa5de6d43fb%22%2C%22versionRefreshable%22%3A%22a86b1d49d60b51ce44ef306804227a2dbf280863%22%2C%22versionNonRefreshable%22%3A%22fa57a380ed87df5a9f5bb04277434d6f409d2645%22%2C%22versionReplaceable%22%3A%221952018619999f014765d73c14db1f446971e849%22%7D%2C%22web.browser.legacy%22%3A%7B%22version%22%3A%22297d03db9c5405867dd50517af352b596bc34a72%22%2C%22versionRefreshable%22%3A%22a86b1d49d60b51ce44ef306804227a2dbf280863%22%2C%22versionNonRefreshable%22%3A%2208d6de374fb11dcb9073b02bdf3af6000543342a%22%2C%22versionReplaceable%22%3A%221952018619999f014765d73c14db1f446971e849%22%7D%7D%2C%22autoupdateVersion%22%3Anull%2C%22autoupdateVersionRefreshable%22%3Anull%2C%22autoupdateVersionCordova%22%3Anull%2C%22appId%22%3A%22jrnkwdjvicqgy6gtl8%22%7D%2C%22appId%22%3A%22jrnkwdjvicqgy6gtl8%22%2C%22isModern%22%3Atrue%7D"))</script>
+
+  <script type="text/javascript" src="/html5client/2d776ddc6da52b3041209befc1f9ff445b5895a6.js?meteor_js_resource=true"></script>
+
+
+</body>
+</html>
